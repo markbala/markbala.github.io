@@ -7,7 +7,9 @@
 
 # THANKS
 
-    &copy;Sima 2015. templated developed by md. shiddikur rahman
+    &copy;Sima 2015.
+    templated developed by md. shiddikur rahman
+    single.html made by myumifte
 
 # TECHNOLOGY COLOPHON
 
