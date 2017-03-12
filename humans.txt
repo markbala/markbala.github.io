@@ -7,7 +7,7 @@
 
 # THANKS
 
-    <name>
+    &copy;Sima 2015. templated developed by md. shiddikur rahman
 
 # TECHNOLOGY COLOPHON
 
