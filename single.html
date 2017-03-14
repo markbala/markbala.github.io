@@ -87,25 +87,76 @@
 	<div class="container">
 		<div class="row">
 			<div class="title_sec">
-				<h1>Single Page</h1>
-				<h2>[title]</h2>
+				<h1>Assembling a 3d Printer</h1>
+				<h2></h2>
 			</div>
 			<div class="col-lg-8 col-md-8 col-sm-8 ">
 				<div class="sngl_blg">
-					<img src="http://cdn.shopify.com/s/files/1/1039/5466/files/blog-img2.jpg?10828543012475550494" alt=""/>
+					<img src="https://app.box.com/shared/static/3klpoevewavxnau1vg2606791vripjka.jpg" alt=""/>
 					<div class="post_info">
 						<div class="post_intro">
-							<h2>there are a few things</h2>
+							<h2>Assembling a 3d Printer</h2>
 							<i class="fa fa-picture-o"></i>
 						</div>
 						<ul>
-							<li>Oct 23 2015 //</li>
-							<li>Oct 23 2015 //</li>
+							<li>Mar 14 2017//</li>
 							<li>1 comment</li>
 						</ul>
 					</div>
 					<div class="post_content">
-						<p>Vestibulum sed pharetra risus, ac lacinia lorem. Etiam commodo laoreet rutrum. Praesent ut nulla in erat accumsan egestas pulvinar at ipsum. Aenean auctor, neque et dapibus lacinia, leo mauris rhoncus elit, id tincidunt purus orci ut eros. Suspendisse potenti. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mu, ac lacinia lorem. Etiam commodo laoreet rutrum. Praesent ut nulla in erat accumsan egestas pulvinar at ipsum. Aenean auctor, neque et dapibus lacinia, leo mauris rhoncus elit, id tincidunt purus orci ut eros. Suspendisse potenti. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus</p>
+						<p>
+              <ul>
+              <li>People: Alex Lim, Mark Bala</li>
+              <li>Date:  End 2016</li>
+              <p></p>
+              I've always wondered how 3d printers work.
+              I figured assembling one would help me to better understand the mechanics behind it.
+              After a week of research, reading reviews, and asking for advice, we settled on the FLSUN Kossel Delta 3d Printer.
+              It took a week to ship from China and set us back roughly US$250.
+              We assembled it in approximately 8 hours, split over 2 evenings.
+              <p></p>
+            <strong>Understanding the printer:</strong>
+            <li> Our printer consists of an aluminum frame, held together by plastic joints.</li>
+            <li> Literally everything that isn't metal can be printed (replicated) by the 3d printer.</li>
+            <li> The frame is in the shape of a triangular prism.</li>
+            <li> 3 sets of carbon fibre rods connect the extruder head to the frame and form the shape of a triangle, hence the term 'delta'.</li>
+            <li> The rods are attached to rolling bearings that move freely up and down each aluminum rod.</li>
+            <li> 3 stepper motors are hidden under each of the vertical rods, and they work together to move the rods (and hence the extruder head) along the x,y,z axes.</li>
+            <li> Computing hardware: The printer is powered by a MEGA 2560 chip which is hidden underneath the printer bed</li>
+            <li> Software: We are using Slic3r and Repetier Host on a Windows computer.</li>
+            <li> After downloading or designing a 3d model (STL file), slic3r is used to process the model.</li>
+            <li> It turns the model into a long list of x,y co-ordinates that tell the printer how it should move within each layer so as to draw the object.</li>
+            <li> After a layer is complete, the printer head moves up (z-axis) by a specific amount, and follows the co-ordinates as defined in the next layer</li>
+            <li> A 4th stepper motor lives at the top of the printer, and its sole function is to push filament ('extrude') into the extruder head, or pull filament out ('retract')</li>
+            <li> This is essentially a "print" / "do not print" function.</li>
+            <li> Combined with the x,y co-ordinates, the printer draws each layer accurately, making sure not to print over spaces that should be blank.</li>
+            <li> Everything can be customised. Print speed, layer thickness, infill density and pattern, temperature, retraction length and speed, support structures and rafts, cooling techniques, first layer specifics, etc.</li>
+            <p></p>
+            <strong>Learning Points:</strong>
+            <li> Every variable matters, and variables are often interdependent, affecting and interacting with each other.</li>
+            <li> Calibration is an art.</li>
+            <li> Consider printing orientation (i.e. whether to print an object as-is, on its side, or upside down).</li>
+            <li> Every problem we encountered had been experienced by someone else and solutions are readily available online.</li>
+            <p></p>
+            <strong>Ideas for development:</strong>
+            <li> Our specific printer model is a commonly modified printer.</li>
+            <li> Many parts have been redesigned and can be printed and replaced (i.e. fan, damper, tensioner, auto-level).</li>
+            <li> Some of these modifications improve print quality. Others make the printer run quieter.</li>
+            <p></p>
+            <strong>Mistakes:</strong>
+            <li> We had to cut and re-solder some wires so as to avoid taking apart hours of work.</li>
+            <li> We clogged the extruder after a month of use.</li>
+            <li> Printing models that are too large will cause the extruder to crash into the aluminum rods.</li>
+            <p></p>
+            <strong>Things we are happy with:</strong>
+            <li> We can make stuff now.</li>
+            <li> It is cheap to print (one kg of PLA filament is about $8-12 from Taobao).</li>
+            <li> Our printer is fairly well calibrated- a 2cm model becomes a 2cm print.</li>
+            <li> Although for the most time, we just printed frivolous objects, along the way we've also made some things that are useful for work and daily life such as a tap key, christmas decorations, bottle opener and a tablet stand.</li>
+            <li> We've learnt the mechanics of a delta 3d printer.</li>
+            <li> We've gotten a decent grasp on the nuances and pitfalls in calibration.</li>
+          </ul>
+          </p>
 
 					</div>
 				</div>
@@ -119,8 +170,8 @@
 							<li><a href=""><i class="fa fa-skype"></i></a></li>
 							<li><a href=""><i class="fa fa-google"></i></a></li>
 						</ul>
-						<h3>Admin</h3>
-						<p>Phasellus facilisis convallis metus, ut imperdiet augue auctor nec. Duis at velit id augue lobortis porta. Sed varius, enim accumsan aliquam tincidunt, tortor urna vulputate quam, eget finibus urna est in augue. Etiam in sem non tellus volutpat lacinia.</p>
+						<h3>[About Me]</h3>
+						<p>about the author 2 lines metusasdsadlamksdlaskmdlaskmdlaskml asd a asd asd asd as </p>
 					</div>
 				</div>
 
@@ -155,8 +206,6 @@
 							<li><a href="">Donec nec pretium felis</a></li>
 							<li><a href="">Donec nec pretium felis</a></li>
 							<li><a href="">Donec nec pretium felis</a></li>
-							<li><a href="">Donec nec pretium felis</a></li>
-							<li><a href="">Donec nec pretium felis</a></li>
 						</ul>
 					</div>
 					<div class="widget">
@@ -166,20 +215,12 @@
 							<li><a href="">Donec nec pretium felis</a></li>
 							<li><a href="">Donec nec pretium felis</a></li>
 							<li><a href="">Donec nec pretium felis</a></li>
-							<li><a href="">Donec nec pretium felis</a></li>
-							<li><a href="">Donec nec pretium felis</a></li>
 						</ul>
 					</div>
 					<div class="widget">
 						<h2>categories</h2>
 						<div class="title_br"></div>
 						<ul class="flickr">
-							<li><img src="img/flckr.jpg" alt=""/></li>
-							<li><img src="img/flckr.jpg" alt=""/></li>
-							<li><img src="img/flckr.jpg" alt=""/></li>
-							<li><img src="img/flckr.jpg" alt=""/></li>
-							<li><img src="img/flckr.jpg" alt=""/></li>
-							<li><img src="img/flckr.jpg" alt=""/></li>
 							<li><img src="img/flckr.jpg" alt=""/></li>
 							<li><img src="img/flckr.jpg" alt=""/></li>
 						</ul>
@@ -202,30 +243,7 @@
 		</div>
 	</div>
 </section>
-<!-- start Blog Section -->
-
-<!-- start located map Section -->
-<!--
-<section id="ltd_map_sec">
-<div class="container">
-	<div class="row">
-		<div class="col-lg-12">
-			<div class="map">
-			<h1>located THE MAP</h1><a href="#slidingDiv" class="show_hide" rel="#slidingDiv"><i class="fa fa-angle-up"></i></a>
-			<div id="slidingDiv">
-
-						<div class="map_area">
-							<div id="googleMap" style="width:100%;height:300px;"></div>
-						</div>
-
-			</div>
-			</div>
-		</div>
-	</div>
-</div>
-</section>
--->
-<!-- End located map  Section -->
+<!-- end Blog Section -->
 
 <!-- start footer Section -->
 <footer id="ft_sec">
@@ -236,18 +254,18 @@
 					<ul>
 						<li><a href=""><i class="fa fa-facebook"></i></a></li>
 						<li><a href=""><i class="fa fa-twitter"></i></a></li>
-						<li><a href=""><i class="fa fa-dribbble"></i></a></li>
+						<!--<li><a href=""><i class="fa fa-dribbble"></i></a></li>
 						<li><a href=""><i class="fa fa-rss"></i></a></li>
 						<li><a href=""><i class="fa fa-flickr"></i></a></li>
 						<li><a href=""><i class="fa fa-pinterest"></i></a></li>
 						<li><a href=""><i class="fa fa-linkedin"></i></a></li>
 						<li><a href=""><i class="fa fa-skype"></i></a></li>
-						<li><a href=""><i class="fa fa-google"></i></a></li>
+						<li><a href=""><i class="fa fa-google"></i></a></li> -->
 					</ul>
 				</div>
 					<ul class="copy_right">
-						<li>&copy;Sima 2015</li>
-						<li>made by myumifte</li>
+            <li>&copy; Mark Balakrishnan 2017</li>
+            <li>humans.txt for credits</li>
 					</ul>
 			</div>
 		</div>
