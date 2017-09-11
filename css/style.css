@@ -155,7 +155,7 @@ display : block;
 margin-left : 6px;
 }
 #src_sec {
-background-image : url("../img/slider1.JPG");
+background-image : url("../img/slide_img.JPG");
 background-position : center center;
 background-size : cover;
 min-height : 500px;
