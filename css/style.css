@@ -155,7 +155,7 @@ display : block;
 margin-left : 6px;
 }
 #src_sec {
-background-image : url("../img/slider.JPG");
+background-image : url("../img/slider1.JPG");
 background-position : center center;
 background-size : cover;
 min-height : 500px;
@@ -345,7 +345,7 @@ vertical-align : middle;
 width : 100%;
 }
 #slider_sec {
-background-image : url("../img/slider.jpg");
+background-image : url("../img/slider.JPG");
 background-position : center center;
 background-repeat : no-repeat;
 background-size : 100% 100%;
