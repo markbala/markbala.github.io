@@ -98,22 +98,30 @@
 					<div class="post_content">
 						<p>
               <ul>
-            I wrote a simple RSS reader in Python. This reader monitors updates from (1) SGX Company Announcements and (2) Straits Times Singapore News. Check out the
-	    <a href='https://github.com/markbala/RSS-Feed-SGX-Straits-Times'>Source Code</a>.
-            <li>This light weight reader floats on top of any open application, and can be dragged anywhere on the screen so as not to obscure anything important.</li>
-            <li>The reader checks for updates every 60 seconds.</li>
-            <li>It starts by pulling the 10 latest posts from each news source, and then scans the 5 latest posts every 60s to check for new posts.</li>
-            <li>At any one time, it maintains a list of the 10 most recent entries from each database (SGX and the Straits Times) and displays a random entry from this list for 8 seconds.</li>
-            <li>I used the <a href= 'https://pypi.python.org/pypi/feedparser'><i>feedparser</i></a> python library to parse RSS data</li>
-            <li>I used standard libries such as <i>tkinter</i>, <i>sys</i> and <i>random</i>.</li>
+                  <li>This is a simple RSS reader written in Python</li>
+                  <li>It monitors RSS feeds from: <ul><li>SGX Company Announcements</li> <li>Straits Times Singapore section</li></ul>
+                  <li>Source code available on my Github page <a href='https://github.com/markbala/RSS-Feed-SGX-Straits-Times'>here</a></li></li>
+                  <li>This light weight reader floats on top of any open application, and can be dragged anywhere on the screen so as not to obscure anything important</li>
+                  <li>The reader checks for updates every 60 seconds</li>
+                  <li>On launch, it pulls the 10 latest posts from each news source</li>
+                  <li>Each source gets polled once a minute thereafter to check for new posts</li>
+                  <li>At all times, a list of the 10 most recent entries (per news source) is maintanied and a random entry from this list is displayed for 8 seconds</li>
+                  <li>Libraries used include: <ul><li>Standard Python Libraries - <i>tkinter</i>, <i>sys</i> and <i>random</i>.</li> <li>Third Party Libraries - <a href= 'https://pypi.python.org/pypi/feedparser'><i>feedparser</i></a> (to parse RSS data)</li></ul>
+                  <p>&emsp;</p>
+              </ul>
             <strong> Issues, Improvements and Learning Points: </strong>
             <ul>
-              <li>[to be updated]</li>
+              <li>Add additional relevant RSS feeds</li>
+              <li>Consider a multi-line RSS output</li>
+              <li>Currently no notification or alert when a new RSS item is added</li>
             </ul>
             <p></p>
-          </ul>
           </p>
-	</div>
+	       </div>
+       </div>
+     </div>
+   </div>
+ </div>
 </section>
 <!-- end Blog Section -->
 
@@ -124,9 +132,9 @@
 			<div class="col-lg-12">
 				<div class="ft">
 					<ul>
-						<li><a href=""><i class="fa fa-facebook"></i></a></li>
+						<!--<li><a href=""><i class="fa fa-facebook"></i></a></li>
 						<li><a href=""><i class="fa fa-twitter"></i></a></li>
-						<!--<li><a href=""><i class="fa fa-dribbble"></i></a></li>
+						<li><a href=""><i class="fa fa-dribbble"></i></a></li>
 						<li><a href=""><i class="fa fa-rss"></i></a></li>
 						<li><a href=""><i class="fa fa-flickr"></i></a></li>
 						<li><a href=""><i class="fa fa-pinterest"></i></a></li>
