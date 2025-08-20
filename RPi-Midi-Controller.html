@@ -1,0 +1,159 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Mark Balakrishnan</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<!-- Start Header Section -->
+<header class="main_menu_sec navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="lft_hd">
+          <a href="index.html"><img src="img/logo.png" alt=""/></a>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-9 col-sm-12">
+        <div class="rgt_hd">
+          <div class="main_menu">
+            <nav id="nav_menu">
+              <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <div id="navbar">
+                <ul>
+                  <li><a class="page-scroll" href="index.html">Home</a></li>
+                  <li><a href="#">Jump To<i class="fa fa-angle-down"></i></a>
+                    <ul>
+                      <li><a class="page-scroll" href="#abt_sec">About</a></li>
+                      <li><a class="page-scroll" href="#lts_sec">Recent Posts</a></li>
+                      <li><a class="page-scroll" href="#protfolio_sec">Project Portfolio</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- End Header Section -->
+
+<!-- start blog Section -->
+<section id="blg_sec">
+  <div class="container">
+    <div class="row">
+      <div class="title_sec">
+        <h1>Raspberry Pi MIDI Footswitch Controller</h1>
+      </div>
+
+      <!-- Project images -->
+      <div style="text-align:center; margin-bottom:20px;">
+        <img src="img/Rpi MIDI Controller 1.png" alt="Raspberry Pi MIDI Controller photo 1" style="max-width:45%;margin:5px;">
+        <img src="img/Rpi MIDI Controller 2.png" alt="Raspberry Pi MIDI Controller photo 2" style="max-width:45%;margin:5px;">
+      </div>
+
+      <div class="col-lg-8 col-md-8 col-sm-8 ">
+        <div class="sngl_blg">
+          <div class="post_info">
+            <div class="post_intro">
+              <h2>Raspberry Pi MIDI Footswitch Controller</h2>
+            </div>
+            <ul>
+              <li>June 2020 // Mark Bala</li>
+            </ul>
+          </div>
+          <div class="post_content">
+            <p>I wanted to add an extra four footswitches (for cheap!) to my Atomic Amplifier and discovered that a Raspberry Pi can be used as a MIDI controller.</p>
+
+            <p><strong>Parts:</strong></p>
+            <ul>
+              <li>Raspberry Pi Zero W</li>
+              <li>4 × Footswitches + wires + resistors</li>
+              <li>4 × LEDs</li>
+              <li>USB to MIDI cable</li>
+              <li>OTG cable for Pi Zero to accept USB A</li>
+              <li>Casing</li>
+            </ul>
+
+            <p><strong>How it works:</strong></p>
+            <ul>
+              <li>Four footswitches wired to the Pi’s GPIO, each with its own LED indicator.</li>
+              <li>Pressing a switch sends a predefined MIDI Control Change (CC) message to the connected device.</li>
+              <li>The controller can tell the difference between short and long presses, so the same switch can trigger different actions.</li>
+              <li>LEDs give instant visual feedback whenever a press is registered.</li>
+              <li>On startup, all LEDs flash in sequence to show the controller is ready.</li>
+              <li>The Pi automatically searches for and connects to available MIDI devices.</li>
+              <li>Once running, it continuously listens for footswitch presses and sends out the matching MIDI messages.</li>
+            </ul>
+
+            <p><strong>Code and details:</strong><br>
+              Full source, wiring, and setup notes are here:<br>
+              <a href="https://github.com/markbala/Raspberry-Pi-MIDI-Controller" target="_blank" rel="noopener">
+                View on GitHub
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end Blog Section -->
+
+<!-- start footer Section -->
+<footer id="ft_sec">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="ft">
+          <ul>
+            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+          </ul>
+        </div>
+        <ul class="copy_right">
+          <li>&copy; Mark Balakrishnan 2020</li>
+          <li>humans.txt for credits</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- End footer Section -->
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="js/vendor/jquery-1.11.2.min.js"></script>
+<script src="js/isotope.pkgd.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/appear.js"></script>
+<script src="js/jquery.counterup.min.js"></script>
+<script src="js/waypoints.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/showHide.js"></script>
+<script src="js/jquery.nicescroll.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/scrolling-nav.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
