@@ -11,7 +11,7 @@
 	<!--[if lt IE 9]> <script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script> <![endif]-->
         <!-- Place favicon.ico in the root directory -->
-		<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+		
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -48,7 +48,7 @@
 		<div class="row">
 			<div class="col-lg-3 col-md-3 col-sm-12">
 				<div class="lft_hd">
-					<a href="index.html"><img src="img/logo.png" alt=""/></a>
+					<a href="index.html"><img src="img/logo.png" alt="" loading="lazy"/></a>
 				</div>
 			</div>
 			<div class="col-lg-9 col-md-9 col-sm-12">
@@ -272,9 +272,9 @@
         <a href="RPi-Midi-Controller.html" class="card-link">
           <div class="lts_pst">
             <p>&emsp;</p>
-            <img src="img/Rpi MIDI Controller 4.png" alt="RPi MIDI Footswitch Controller"/>
+            <img src="img/Rpi MIDI Controller 4.png" alt="RPi MIDI Footswitch Controller"  loading="lazy"/>
             <h2>RASPBERRY PI MIDI FOOTSWITCH CONTROLLER</h2>
-            <p><b>June 2020:</b> turns a Raspberry Pi into a simple footswitch MIDI controller. Written in Python</p>
+            <p><b>June 2020:</b> A simple Raspberry Pi powered footswitch MIDI controller. Written in Python</p>
             <span class="read-more">Read more <i class="fa fa-long-arrow-right"></i></span>
           </div>
         </a>
@@ -285,7 +285,7 @@
         <a href="https://github.com/markbala/EtherPriceBotTelegram" target="_blank" rel="noopener" class="card-link">
           <div class="lts_pst">
             <p>&emsp;</p>
-            <img src="img/Ethereum Telegram BOT.jpg" alt="Ethereum Telegram BOT example chat"/>
+            <img src="img/Ethereum Telegram BOT.jpg" alt="Ethereum Telegram BOT example chat" loading="lazy"/>
             <h2>TELEGRAM ETHEREUM PRICE BOT</h2>
             <p><b>December 2018:</b> Retrieves the spot ETH price and the (now defunct) “Kimchi premium”. Written in Python</p>
             <span class="read-more">Read more <i class="fa fa-long-arrow-right"></i></span>
@@ -298,9 +298,9 @@
         <a href="RSS-reader.html" class="card-link">
           <div class="lts_pst">
             <p>&emsp;</p>
-            <img src="img/RSS.PNG" alt="Python RSS Reader"/>
+            <img src="img/RSS.PNG" alt="Python RSS Reader" loading="lazy"/>
             <h2>Python RSS Reader</h2>
-            <p><b>August 2017:</b> Writing a simple RSS Reader in Python &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+            <p><b>August 2017:</b>  A simple RSS Reader in Python &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
             <span class="read-more">Read more <i class="fa fa-long-arrow-right"></i></span>
           </div>
         </a>
@@ -313,9 +313,9 @@
         <a href="plotclock.html" class="card-link">
           <div class="lts_pst">
             <p>&emsp;</p>
-            <img src="img/Plot Clock Assembled.JPG" alt="Assembled plot clock"/>
+            <img src="img/Plot Clock Assembled.JPG" alt="Assembled plot clock" loading="lazy"/>
             <h2>Plotclock</h2>
-            <p><b>April 2017:</b> 3D printing and assembling a “plotclock” (a mechanical arm that writes and erases the time)</p>
+            <p><b>April 2017:</b> 3D printed and assembled “plot clock” - a mechanical arm that writes & erases the time)</p>
             <span class="read-more">Read more <i class="fa fa-long-arrow-right"></i></span>
           </div>
         </a>
@@ -326,7 +326,7 @@
         <a href="assembling-a-3d-printer.html" class="card-link">
           <div class="lts_pst">
             <p>&emsp;</p>
-            <img src="img/3D Printer Before Assembly.jpg" alt="3D printer prior to assembly"/>
+            <img src="img/3D Printer Before Assembly.jpg" alt="3D printer prior to assembly" loading="lazy"/>
             <h2>Assembling a 3D Printer</h2>
             <p><b>March 2017:</b> Assembling a delta 3D printer &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
             <span class="read-more">Read more <i class="fa fa-long-arrow-right"></i></span>
@@ -343,8 +343,6 @@
     </div>
   </div>
 </section>
-
-
 <!-- End Latest post Section -->
 
 <!-- start contact us Section -->
@@ -410,8 +408,7 @@
 					</ul>
 				</div>
 				<ul class="copy_right">
-					<li>&copy; Mark Balakrishnan 2019</li>
-          <li>humans.txt for credits</li>
+					<li>&copy; Mark Balakrishnan 2025</li>
 				</ul>
 			</div>
 		</div>
@@ -419,7 +416,6 @@
 </footer>
 <!-- End footer Section -->
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="js/vendor/jquery-1.11.3.min.js"></script>
 
 <script src="js/isotope.pkgd.min.js"></script>
@@ -434,48 +430,20 @@
 <script src="js/jquery.easing.min.js"></script>
 <script src="js/scrolling-nav.js"></script>
 <script src="js/plugins.js"></script>
-<!-- Google Map js -->
-<!--
-	<script src="https://maps.googleapis.com/maps/api/js"></script>
-		<script>
-			function initialize() {
-			  var mapOptions = {
-				zoom: 14,
-				scrollwheel: false,
-				center: new google.maps.LatLng(41.092586000000000000, -75.592688599999970000)
-			  };
-			  var map = new google.maps.Map(document.getElementById('googleMap'),
-				  mapOptions);
-			  var marker = new google.maps.Marker({
-				position: map.getCenter(),
-				animation:google.maps.Animation.BOUNCE,
-				icon: 'img/map-marker.png',
-				map: map
-			  });
-			}
-			google.maps.event.addDomListener(window, 'load', initialize);
-		</script>
--->
 <script src="js/main.js"></script>
-<script src="showHide.js" type="text/javascript"></script>
 <script type="text/javascript">
 
 $(document).ready(function(){
-
-
    $('.show_hide').showHide({
 		speed: 1000,  // speed you want the toggle to happen
 		easing: '',  // the animation effect you want. Remove this line if you dont want an effect and if you haven't included jQuery UI
 		changeText: 1, // if you dont want the button text to change, set this to 0
 		showText: 'View',// the button text to show when a div is closed
 		hideText: 'Close' // the button text to show when a div is open
-
 	});
-
-
 });
-
 </script>
+
 <script>
     jQuery(document).ready(function( $ ) {
         $('.counter').counterUp({
@@ -486,7 +454,6 @@ $(document).ready(function(){
 </script>
 
 <script>
-
   //Hide Overflow of Body on DOM Ready //
 $(document).ready(function(){
     $("body").css("overflow", "hidden");
@@ -502,11 +469,8 @@ $(window).load(function(){
 	boxzoom:true,
 	autohidemode:true
 	});
-
 });
 </script>
-
-
 
     </body>
 </html>
