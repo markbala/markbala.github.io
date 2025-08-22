@@ -837,6 +837,14 @@ background : none 0 0 repeat scroll #353638;
 border : none 0;
 margin : 0;
 }
+
+.main_menu_sec.navbar-fixed-top{
+  background:#fff;            /* solid background avoids expensive blending */
+  will-change: transform;     /* compositing hint */
+}
+html { scroll-behavior: smooth; } /* then you can skip JS smooth scroll */
+
+
 .post_info i {
 background : none 0 0 repeat scroll #00aff0;
 color : #fff;
@@ -980,3 +988,5 @@ width : 355px !important ;
 .single_cnt_m {
 width : 731px !important ;
 }
+
+#loader-wrapper { display: none !important; }
