@@ -990,3 +990,23 @@ width : 731px !important ;
 }
 
 #loader-wrapper { display: none !important; }
+
+/* Ensure header has a solid dark background */
+header.main_menu_sec.navbar {
+  background-color: #141414 !important;
+  border: none;
+}
+
+/* Make header text/links light so they stand out */
+header.main_menu_sec.navbar a,
+header.main_menu_sec.navbar .navbar-nav > li > a {
+  color: #ffffff !important;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Change hover color for clarity */
+header.main_menu_sec.navbar a:hover,
+header.main_menu_sec.navbar .navbar-nav > li > a:hover {
+  color: #3498db !important; /* bright blue accent */
+}
