@@ -154,19 +154,69 @@
 </footer>
 <!-- End footer Section -->
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="js/vendor/jquery-1.11.3.min.js"></script>
-<script src="js/isotope.pkgd.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/appear.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
-<script src="js/waypoints.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/showHide.js"></script>
-<script src="js/jquery.nicescroll.min.js"></script>
-<script src="js/jquery.easing.min.js"></script>
-<script src="js/scrolling-nav.js"></script>
-<script src="js/plugins.js"></script>
+
+<script src="js/isotope.pkgd.min.js" defer></script> 
+<script src="js/jquery-ui.js" defer></script> 
+<script src="js/owl.carousel.min.js" defer></script>
+<script src="js/scrolling-nav.js" defer></script>
+<script src="js/waypoints.min.js" defer></script>
+<script src="js/appear.js" defer></script>
+<script src="js/jquery.counterup.min.js" defer></script>
+<script src="js/showHide.js" defer></script>
+<script src="js/jquery.easing.min.js" defer></script>
+<script src="js/plugins.js" defer></script>
 <script src="js/main.js"></script>
-</body>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+
+   $('.show_hide').showHide({
+		speed: 1000,  // speed you want the toggle to happen
+		easing: '',  // the animation effect you want. Remove this line if you dont want an effect and if you haven't included jQuery UI
+		changeText: 1, // if you dont want the button text to change, set this to 0
+		showText: 'View',// the button text to show when a div is closed
+		hideText: 'Close' // the button text to show when a div is open
+
+	});
+
+
+});
+
+</script>
+<script>
+    jQuery(document).ready(function( $ ) {
+        $('.counter').counterUp({
+            delay: 10,
+            time: 1000
+        });
+    });
+</script>
+
+<script>
+
+  //Hide Overflow of Body on DOM Ready //
+$(document).ready(function(){
+    $("body").css("overflow", "hidden");
+});
+
+// Show Overflow of Body when Everything has Loaded
+$(window).load(function(){
+    $("body").css("overflow", "visible");
+    var nice=$('html').niceScroll({
+	cursorborder:"5",
+	cursorcolor:"#00AFF0",
+	cursorwidth:"3px",
+	boxzoom:true,
+	autohidemode:true
+	});
+
+});
+</script>
+
+
+
+    </body>
 </html>
