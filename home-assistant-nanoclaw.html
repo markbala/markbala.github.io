@@ -1,0 +1,219 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Mark Balakrishnan — Home Assistant + NanoClaw</title>
+<meta name="description" content="A self-hosted NanoClaw agent on WhatsApp that controls Home Assistant via ha-mcp.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/owl.carousel.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;800&display=swap" rel="stylesheet">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NMM6QZ9JRS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NMM6QZ9JRS');
+</script>
+
+<body>
+
+<!-- Start Header Section -->
+<header class="main_menu_sec navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="lft_hd">
+          <a href="index.html"><img src="img/logo.png" alt="" loading="lazy"/></a>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-9 col-sm-12">
+        <div class="rgt_hd">
+          <div class="main_menu">
+            <nav id="nav_menu">
+              <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <div id="navbar">
+                <ul>
+                  <li><a class="page-scroll" href="index.html">Home</a></li>
+                  <li><a href="#">Jump To<i class="fa fa-angle-down"></i></a>
+                    <ul>
+                      <li><a class="page-scroll" href="index.html#abt_sec">About</a></li>
+                      <li><a class="page-scroll" href="index.html#lts_sec">Recent Posts</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- End Header Section -->
+
+<!-- start blog Section -->
+<section id="blg_sec">
+  <div class="container">
+    <div class="row">
+      <div class="title_sec">
+        <h1>Home Assistant + NanoClaw</h1>
+      </div>
+
+      <!-- Demo screenshot -->
+      <div style="text-align:center; margin-bottom:20px;">
+        <img src="img/whatsapp-demo-redacted.png" alt="WhatsApp chat with @home agent monitoring CCTV for a second car arrival" loading="lazy" style="max-width:60%; height:auto;">
+      </div>
+
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="sngl_blg">
+          <div class="post_info">
+            <div class="post_intro">
+              <h2>Home Assistant + NanoClaw</h2>
+            </div>
+            <ul>
+              <li>April 2026 // Mark Bala</li>
+            </ul>
+          </div>
+
+          <div class="post_content">
+            <p>
+            <ul>
+            Self-hosted NanoClaw agent responding on WhatsApp to control Home Assistant via ha-mcp.
+            <p></p>
+            <strong>The stack:</strong>
+            <li><a href="https://github.com/qwibitai/nanoclaw" target="_blank" rel="noopener">NanoClaw</a> &mdash; runs persistent, containerized Claude agents addressable from chat apps (WhatsApp, Telegram, Slack, Discord, etc). Each agent has its own memory, workspace, and scheduled-task system. Built on Anthropic's Claude Agent SDK.</li>
+            <li><a href="https://github.com/homeassistant-ai/ha-mcp" target="_blank" rel="noopener">ha-mcp</a> &mdash; the unofficial Home Assistant MCP server. Exposes various tools across services, automations, scripts, dashboards, camera snapshots, history, system health, and more.</li>
+            <li><a href="https://www.home-assistant.io" target="_blank" rel="noopener">Home Assistant</a> &mdash; open-source, self-hosted home automation platform. Runs on the local network, integrates with thousands of smart devices (cameras, sensors, lights, locks, climate, media).</li>
+            <p></p>
+            <li>This is a self-hosted NanoClaw agent responding to me (or anyone else I set it to) on WhatsApp. On its own, it's a chat bot. Wired into ha-mcp, it gets the entire Home Assistant surface to work with &mdash; plus <strong>Claude's very powerful reasoning between the prompt and the action</strong>.</li>
+            <p></p>
+            <strong>Instructions I've given over WhatsApp:</strong>
+            <li>Script/automation writing</li>
+            <ul>
+              <li>For example "Turn off the entrance floor light if no motion is detected for 10 minutes after sunset." Writes and saves an HA automation with the right triggers, conditions, and action chain.</li>
+            </ul>
+            <li>Frontend Lovelace edits</li>
+            <ul>
+              <li>"Add a card on the main dashboard for the new motion sensor" Updates config with the right card type, entity, and position.</li>
+            </ul>
+            <li>Debugging (it reads logs and even automation traces. suggests and executes fixes)</li>
+            <li>Retrieves CCTV snapshots and understands what it sees &mdash; scene comprehension, not just the usual "motion detected!"</li>
+            <ul>
+              <li>For example, "Close the gate when the second car is parked and the brake lights are off." Polls every few seconds, evaluates the frame, fires the gate-close only when satisfied.</li>
+              <li>or "Is the driveway clear?"</li>
+              <li>The condition logic isn't pre-programmed &mdash; the agent figures out from the prompt what to look for.</li>
+            </ul>
+            <li>Scheduling ad-hoc actions ("Open the gate and turn on the ground floor lights in 5 mins, my friends are otw over")</li>
+            <p></p>
+            <li>Because of Claude's reasoning capability, messages like "close gate", "what's on the driveway cam", or "flash the living room lights like a police siren for 5 seconds" get executed reliably.</li>
+            <p></p>
+            <strong>Scheduled actions:</strong>
+            <li>Inside Home Assistant &mdash; automations and time-triggered scripts that persist and run even when the agent is asleep.</li>
+            <li>Outside, via NanoClaw &mdash; cron-like tasks that wake the agent on a schedule. "Every morning at 7am, summarize the overnight logs and flag anything weird" runs daily; the agent reads the logs and pings only if something's off.</li>
+            <p></p>
+            <strong>What makes this special:</strong>
+            <li>The difference between "Alexa, turn off the light" and this setup is the reasoning capability between the prompt and the eventual action. And the ability to debug if things don't go as planned.</li>
+            <li>NanoClaw's persistent memory means the agent remembers what was asked in the chat and improves over time, learning the cameras (i.e. even the type of cars observed in the CCTV image), the common requests.</li>
+            <li>Because it interacts with us via WhatsApp, it can respond to me, other NanoClaw WhatsApp Agents, or group chat participants (having a laugh with my smart home).</li>
+            <li><strong>Makes HA reachable beyond the local network</strong> &mdash; NanoClaw server and Home Assistant server sit on the same network, making Home Assistant reachable (via WhatsApp) from anywhere! No port opening and config. No VPN required.</li>
+            <p></p>
+            <strong>Built with:</strong>
+            <li><a href="https://github.com/qwibitai/nanoclaw" target="_blank" rel="noopener">NanoClaw</a>, <a href="https://www.home-assistant.io" target="_blank" rel="noopener">Home Assistant</a>, <a href="https://github.com/homeassistant-ai/ha-mcp" target="_blank" rel="noopener">ha-mcp</a>.</li>
+            </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end Blog Section -->
+
+<!-- start footer Section -->
+<footer id="ft_sec">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="ft">
+          <ul>
+          </ul>
+        </div>
+        <ul class="copy_right">
+          <li>&copy; Mark Balakrishnan 2026</li>
+          <li>humans.txt for credits</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- End footer Section -->
+
+<script src="js/vendor/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/isotope.pkgd.min.js" defer></script>
+<script src="js/jquery-ui.js" defer></script>
+<script src="js/owl.carousel.min.js" defer></script>
+<script src="js/scrolling-nav.js" defer></script>
+<script src="js/waypoints.min.js" defer></script>
+<script src="js/appear.js" defer></script>
+<script src="js/jquery.counterup.min.js" defer></script>
+<script src="js/showHide.js" defer></script>
+<script src="js/jquery.easing.min.js" defer></script>
+<script src="js/plugins.js" defer></script>
+<script src="js/main.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.show_hide').showHide({
+      speed: 1000,
+      easing: '',
+      changeText: 1,
+      showText: 'View',
+      hideText: 'Close'
+    });
+  });
+</script>
+<script>
+  jQuery(document).ready(function( $ ) {
+    $('.counter').counterUp({
+      delay: 10,
+      time: 1000
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $("body").css("overflow", "hidden");
+  });
+  $(window).load(function(){
+    $("body").css("overflow", "visible");
+    var nice=$('html').niceScroll({
+      cursorborder:"5",
+      cursorcolor:"#00AFF0",
+      cursorwidth:"3px",
+      boxzoom:true,
+      autohidemode:true
+    });
+  });
+</script>
+
+</body>
+</html>
