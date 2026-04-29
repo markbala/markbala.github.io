@@ -1,10 +1,37 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Mark Balakrishnan</title>
-    <meta name="description" content="">
+    <title>3D-Printed Plot Clock | Mark Balakrishnan</title>
+<meta name="description" content="3D-printing and assembling Joo's Plot Clock — a servo-driven mechanical arm that writes the time on a board and erases it once a minute.">
+<meta name="author" content="Mark Balakrishnan">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#00AFF0">
+<link rel="canonical" href="https://mark.balakrishnan.sg/plotclock.html">
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Mark Balakrishnan">
+<meta property="og:title" content="3D-Printed Plot Clock | Mark Balakrishnan">
+<meta property="og:description" content="3D-printing and assembling Joo's Plot Clock — a servo-driven mechanical arm that writes the time on a board and erases it once a minute.">
+<meta property="og:url" content="https://mark.balakrishnan.sg/plotclock.html">
+<meta property="og:image" content="https://mark.balakrishnan.sg/img/Plot Clock Assembled.JPG">
+<meta property="og:image:alt" content="Assembled 3D-printed plot clock">
+<meta property="og:locale" content="en_SG">
+<meta property="article:author" content="Mark Balakrishnan">
+<meta property="article:published_time" content="2017-04-01">
+<meta property="article:section" content="3D printing">
+<meta property="article:tag" content="3D printing">
+<meta property="article:tag" content="Arduino">
+<meta property="article:tag" content="Plot clock">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="3D-Printed Plot Clock | Mark Balakrishnan">
+<meta name="twitter:description" content="3D-printing and assembling Joo's Plot Clock — a servo-driven mechanical arm that writes the time on a board and erases it once a minute.">
+<meta name="twitter:image" content="https://mark.balakrishnan.sg/img/Plot Clock Assembled.JPG">
+<meta name="twitter:image:alt" content="Assembled 3D-printed plot clock">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -21,6 +48,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;800&display=swap" rel="stylesheet">
 
+
+<!-- JSON-LD: Article + Breadcrumb -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Printing and Assembling a Plot Clock",
+      "description": "3D-printing and assembling Joo's Plot Clock — a servo-driven mechanical arm that writes the time on a board and erases it once a minute.",
+      "image": "https://mark.balakrishnan.sg/img/Plot Clock Assembled.JPG",
+      "datePublished": "2017-04-01",
+      "author": {
+        "@type": "Person",
+        "name": "Mark Balakrishnan",
+        "url": "https://mark.balakrishnan.sg/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Mark Balakrishnan"
+      },
+      "mainEntityOfPage": "https://mark.balakrishnan.sg/plotclock.html",
+      "keywords": "plot clock, 3D printing, Arduino, servo, Thingiverse"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://mark.balakrishnan.sg/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Plot Clock",
+          "item": "https://mark.balakrishnan.sg/plotclock.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -53,17 +124,11 @@
 							<span class="icon-bar"></span>
 							</button>
 						<div id="navbar">
-							<ul>
-								<li><a class="page-scroll" href="index.html">Home</a></li>
-							<li><a href="#">Jump To<i class="fa fa-angle-down"></i></a>
-								<ul>
-									<li><a class="page-scroll" href="#abt_sec">About</a></li>
-									<li><a class="page-scroll" href="#lts_sec">Recent Posts</a></li>
-									<li><a class="page-scroll" href="#protfolio_sec">Project Portfolio</a></li>
-								</ul>
-							</li>
-							</ul>
-						</div>
+                <ul>
+                  <li><a class="page-scroll" href="index.html">Home</a></li>
+                  <li><a href="index.html#lts_sec">Projects</a></li>
+                </ul>
+              </div>
 						</nav>
 					</div>
 				</div>
@@ -143,16 +208,9 @@
 			<div class="col-lg-12">
 				<div class="ft">
 					<ul>
-						<!--<li><a href=""><i class="fa fa-facebook"></i></a></li>
-						<li><a href=""><i class="fa fa-twitter"></i></a></li>
-						<li><a href=""><i class="fa fa-dribbble"></i></a></li>
-						<li><a href=""><i class="fa fa-rss"></i></a></li>
-						<li><a href=""><i class="fa fa-flickr"></i></a></li>
-						<li><a href=""><i class="fa fa-pinterest"></i></a></li>
-						<li><a href=""><i class="fa fa-linkedin"></i></a></li>
-						<li><a href=""><i class="fa fa-skype"></i></a></li>
-						<li><a href=""><i class="fa fa-google"></i></a></li> -->
-					</ul>
+            <li><a href="https://github.com/markbala" rel="me noopener external" aria-label="GitHub" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i><span class="sr-only">GitHub</span></a></li>
+            <li><a href="https://www.dymonasiaprivateequity.com/team/mark-balakrishnan/" rel="me noopener external" aria-label="Work" title="Work"><i class="fa fa-briefcase" aria-hidden="true"></i><span class="sr-only">Work</span></a></li>
+          </ul>
 				</div>
 					<ul class="copy_right">
             <li>&copy; Mark Balakrishnan 2025</li>

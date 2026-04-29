@@ -1,10 +1,37 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Mark Balakrishnan</title>
-    <meta name="description" content="">
+    <title>Raspberry Pi MIDI Footswitch Controller | Mark Balakrishnan</title>
+<meta name="description" content="Build log for a Raspberry Pi Zero MIDI footswitch controller in Python: GPIO footswitches, USB-MIDI output, short/long-press handling and LED feedback.">
+<meta name="author" content="Mark Balakrishnan">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#00AFF0">
+<link rel="canonical" href="https://mark.balakrishnan.sg/RPi-Midi-Controller.html">
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Mark Balakrishnan">
+<meta property="og:title" content="Raspberry Pi MIDI Footswitch Controller | Mark Balakrishnan">
+<meta property="og:description" content="Build log for a Raspberry Pi Zero MIDI footswitch controller in Python: GPIO footswitches, USB-MIDI output, short/long-press handling and LED feedback.">
+<meta property="og:url" content="https://mark.balakrishnan.sg/RPi-Midi-Controller.html">
+<meta property="og:image" content="https://mark.balakrishnan.sg/img/Rpi MIDI Controller 4.png">
+<meta property="og:image:alt" content="Raspberry Pi MIDI footswitch controller">
+<meta property="og:locale" content="en_SG">
+<meta property="article:author" content="Mark Balakrishnan">
+<meta property="article:published_time" content="2020-06-01">
+<meta property="article:section" content="Raspberry Pi">
+<meta property="article:tag" content="Raspberry Pi">
+<meta property="article:tag" content="MIDI">
+<meta property="article:tag" content="Python">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Raspberry Pi MIDI Footswitch Controller | Mark Balakrishnan">
+<meta name="twitter:description" content="Build log for a Raspberry Pi Zero MIDI footswitch controller in Python: GPIO footswitches, USB-MIDI output, short/long-press handling and LED feedback.">
+<meta name="twitter:image" content="https://mark.balakrishnan.sg/img/Rpi MIDI Controller 4.png">
+<meta name="twitter:image:alt" content="Raspberry Pi MIDI footswitch controller">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -21,6 +48,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;800&display=swap" rel="stylesheet">
 
+
+<!-- JSON-LD: Article + Breadcrumb -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Raspberry Pi MIDI Footswitch Controller",
+      "description": "Build log for a Raspberry Pi Zero MIDI footswitch controller in Python: GPIO footswitches, USB-MIDI output, short/long-press handling and LED feedback.",
+      "image": "https://mark.balakrishnan.sg/img/Rpi MIDI Controller 4.png",
+      "datePublished": "2020-06-01",
+      "author": {
+        "@type": "Person",
+        "name": "Mark Balakrishnan",
+        "url": "https://mark.balakrishnan.sg/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Mark Balakrishnan"
+      },
+      "mainEntityOfPage": "https://mark.balakrishnan.sg/RPi-Midi-Controller.html",
+      "keywords": "Raspberry Pi, MIDI, Python, footswitch, GPIO, Atomic Amplifire"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://mark.balakrishnan.sg/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Raspberry Pi MIDI Footswitch Controller",
+          "item": "https://mark.balakrishnan.sg/RPi-Midi-Controller.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -55,13 +126,7 @@
               <div id="navbar">
                 <ul>
                   <li><a class="page-scroll" href="index.html">Home</a></li>
-                  <li><a href="#">Jump To<i class="fa fa-angle-down"></i></a>
-                    <ul>
-                      <li><a class="page-scroll" href="#abt_sec">About</a></li>
-                      <li><a class="page-scroll" href="#lts_sec">Recent Posts</a></li>
-                      <li><a class="page-scroll" href="#protfolio_sec">Project Portfolio</a></li>
-                    </ul>
-                  </li>
+                  <li><a href="index.html#lts_sec">Projects</a></li>
                 </ul>
               </div>
             </nav>
@@ -140,8 +205,8 @@
       <div class="col-lg-12">
         <div class="ft">
           <ul>
-            <li><a href=""><i class="fa fa-facebook"></i></a></li>
-            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/markbala" rel="me noopener external" aria-label="GitHub" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i><span class="sr-only">GitHub</span></a></li>
+            <li><a href="https://www.dymonasiaprivateequity.com/team/mark-balakrishnan/" rel="me noopener external" aria-label="Work" title="Work"><i class="fa fa-briefcase" aria-hidden="true"></i><span class="sr-only">Work</span></a></li>
           </ul>
         </div>
         <ul class="copy_right">
