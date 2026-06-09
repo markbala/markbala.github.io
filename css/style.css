@@ -1010,3 +1010,80 @@ header.main_menu_sec.navbar a:hover,
 header.main_menu_sec.navbar .navbar-nav > li > a:hover {
   color: #3498db !important; /* bright blue accent */
 }
+
+/* ===================================================================
+   Responsive nav (vanilla, replaces Bootstrap collapse JS)
+   Desktop: inline links (unchanged). Mobile (<768px): hamburger
+   toggles a stacked dropdown via the .open class on #navbar.
+   =================================================================== */
+@media (min-width: 768px) {
+  /* Menu is always visible on desktop, regardless of toggle state */
+  #navbar { display: block !important; }
+}
+
+@media (max-width: 767px) {
+  #nav_menu { position: static; }
+  #navbar {
+    display: none;
+    float: none;
+    clear: both;
+    width: 100%;
+  }
+  #navbar.open { display: block; }
+  #nav_menu ul,
+  #nav_menu ul li { float: none; }
+  #nav_menu ul a { padding: 12px 14px; }
+  /* Keep the hamburger inside the fixed header tidy */
+  .navbar-toggle { margin-right: 0; }
+}
+
+/* ===================================================================
+   Mobile typography bump (<768px) — the template uses fixed px with
+   no mobile scaling, leaving the hero heading/subtitle too small and
+   body copy at the lower bound. Desktop is unaffected.
+   =================================================================== */
+@media (max-width: 767px) {
+  /* Hero heading + subtitle (homepage) */
+  #abt_sec h1,
+  .title_sec h1 { font-size: 28px; line-height: 1.2; }
+  #abt_sec h2,
+  .title_sec h2 { font-size: 15px; line-height: 1.35; }
+
+  /* In-article sub-heading on project pages */
+  .post_intro h2 { font-size: 18px; line-height: 1.3; }
+
+  /* Body copy */
+  .abt p,
+  .lts_pst p,
+  .post_content,
+  .post_content p,
+  .post_content li,
+  .read-more { font-size: 16px; line-height: 1.55; }
+
+  /* Project card titles */
+  .lts_pst h2 { font-size: 16px; line-height: 1.25; }
+}
+
+/* ===================================================================
+   Desktop typography (>=768px) — the template's base headings are
+   undersized (18px hero H1, 12px subtitle). Bump them so the hero
+   reads as a title and desktop stays >= mobile (no breakpoint jump).
+   =================================================================== */
+@media (min-width: 768px) {
+  #abt_sec h1,
+  .title_sec h1 { font-size: 36px; line-height: 1.2; }
+  #abt_sec h2,
+  .title_sec h2 { font-size: 18px; line-height: 1.4; }
+
+  /* In-article sub-heading on project pages */
+  .post_intro h2 { font-size: 20px; line-height: 1.3; }
+
+  .abt p,
+  .lts_pst p,
+  .post_content,
+  .post_content p,
+  .post_content li,
+  .read-more { font-size: 16px; line-height: 1.6; }
+
+  .lts_pst h2 { font-size: 18px; line-height: 1.3; }
+}

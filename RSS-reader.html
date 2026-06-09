@@ -35,12 +35,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/style.css">
 
@@ -197,8 +194,8 @@
 			<div class="col-lg-12">
 				<div class="ft">
 					<ul>
-            <li><a href="https://github.com/markbala" rel="me noopener external" aria-label="GitHub" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i><span class="sr-only">GitHub</span></a></li>
-            <li><a href="https://www.dymonasiaprivateequity.com/team/mark-balakrishnan/" rel="me noopener external" aria-label="Work" title="Work"><i class="fa fa-briefcase" aria-hidden="true"></i><span class="sr-only">Work</span></a></li>
+            <li><a href="https://github.com/markbala" rel="me noopener external" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 16 16" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg><span class="sr-only">GitHub</span></a></li>
+            <li><a href="https://www.dymonasiaprivateequity.com/team/mark-balakrishnan/" rel="me noopener external" aria-label="Work" title="Work"><svg viewBox="0 0 16 16" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zM6 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V3H6v-.5zM1.5 4h13a.5.5 0 0 1 .5.5V7H1V4.5a.5.5 0 0 1 .5-.5zM1 8h14v4.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V8z"></path></svg><span class="sr-only">Work</span></a></li>
           </ul>
 				</div>
 					<ul class="copy_right">
@@ -211,66 +208,23 @@
 </footer>
 <!-- End footer Section -->
 
-<script src="js/vendor/jquery-1.11.3.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
-<script src="js/isotope.pkgd.min.js" defer></script> 
-<script src="js/jquery-ui.js" defer></script> 
-<script src="js/owl.carousel.min.js" defer></script>
-<script src="js/scrolling-nav.js" defer></script>
-<script src="js/waypoints.min.js" defer></script>
-<script src="js/appear.js" defer></script>
-<script src="js/jquery.counterup.min.js" defer></script>
-<script src="js/showHide.js" defer></script>
-<script src="js/jquery.easing.min.js" defer></script>
-<script src="js/plugins.js" defer></script>
-<script src="js/main.js"></script>
-<script type="text/javascript">
-
-$(document).ready(function(){
-
-
-   $('.show_hide').showHide({
-		speed: 1000,  // speed you want the toggle to happen
-		easing: '',  // the animation effect you want. Remove this line if you dont want an effect and if you haven't included jQuery UI
-		changeText: 1, // if you dont want the button text to change, set this to 0
-		showText: 'View',// the button text to show when a div is closed
-		hideText: 'Close' // the button text to show when a div is open
-
-	});
-
-
-});
-
-</script>
+<!-- Mobile nav toggle (vanilla, replaces jQuery + Bootstrap collapse + niceScroll) -->
 <script>
-    jQuery(document).ready(function( $ ) {
-        $('.counter').counterUp({
-            delay: 10,
-            time: 1000
-        });
-    });
-</script>
-
-<script>
-
-  //Hide Overflow of Body on DOM Ready //
-$(document).ready(function(){
-    $("body").css("overflow", "hidden");
-});
-
-// Show Overflow of Body when Everything has Loaded
-$(window).load(function(){
-    $("body").css("overflow", "visible");
-    var nice=$('html').niceScroll({
-	cursorborder:"5",
-	cursorcolor:"#00AFF0",
-	cursorwidth:"3px",
-	boxzoom:true,
-	autohidemode:true
-	});
-
-});
+(function () {
+  var btn = document.querySelector('.navbar-toggle');
+  var nav = document.getElementById('navbar');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.closest('a')) {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
 </script>
 
 
