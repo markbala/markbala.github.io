@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assembling a 3D Printer — Mark Balakrishnan</title>
+<meta name="description" content="Build log: assembling a FLSUN Kossel Delta 3D printer kit, with notes on hardware, calibration, slicing with Slic3r & Repetier Host, and lessons learned.">
+<meta name="author" content="Mark Balakrishnan">
+<meta name="theme-color" content="#0B4228">
+<link rel="canonical" href="https://mark.balakrishnan.sg/projects/assembling-a-3d-printer.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Mark Balakrishnan">
+<meta property="og:title" content="Assembling a 3D Printer — Mark Balakrishnan">
+<meta property="og:description" content="Build log: assembling a FLSUN Kossel Delta 3D printer kit, with notes on hardware, calibration, slicing with Slic3r &amp; Repetier Host, and lessons learned.">
+<meta property="og:url" content="https://mark.balakrishnan.sg/projects/assembling-a-3d-printer.html">
+<meta property="og:image" content="https://mark.balakrishnan.sg/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_SG">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Assembling a 3D Printer">
+<meta name="twitter:description" content="Build log: assembling a FLSUN Kossel Delta 3D printer kit, with notes on hardware, calibration, slicing with Slic3r &amp; Repetier Host, and lessons learned.">
+<meta name="twitter:image" content="https://mark.balakrishnan.sg/img/og-image.png">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+<script>
+(function(){try{var d=document.documentElement;var t=localStorage.getItem('mb-theme');if(t==='carbon')d.setAttribute('data-theme','carbon');var a=localStorage.getItem('mb-accent'),m={racing:'#0B4228',vermilion:'#B23A1E',cobalt:'#1F3A6B',plum:'#5B2A4E'};var v=a?(a[0]==='#'?a:m[a]):'#0B4228';if(v)d.style.setProperty('--accent-base',v);}catch(e){}})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Assembling a 3D Printer",
+      "description": "Build log: assembling a FLSUN Kossel Delta 3D printer kit, with notes on hardware, calibration, slicing with Slic3r & Repetier Host, and lessons learned.",
+      "image": "https://mark.balakrishnan.sg/img/og-image.png",
+      "datePublished": "2017-03-14",
+      "author": { "@type": "Person", "name": "Mark Balakrishnan", "url": "https://mark.balakrishnan.sg/" },
+      "publisher": { "@type": "Person", "name": "Mark Balakrishnan" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mark.balakrishnan.sg/projects/assembling-a-3d-printer.html" },
+      "articleSection": "3D printing",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Build log", "item": "https://mark.balakrishnan.sg/" },
+        { "@type": "ListItem", "position": 2, "name": "Assembling a 3D Printer", "item": "https://mark.balakrishnan.sg/projects/assembling-a-3d-printer.html" }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NMM6QZ9JRS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NMM6QZ9JRS');
+</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" aria-label="Mark Balakrishnan — home">
+      <span class="monogram">MB</span><b>Mark Balakrishnan</b>
+    </a>
+    <nav class="nav">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#about">About</a>
+      <a href="https://github.com/markbala" rel="me noopener" target="_blank">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<article class="article">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#projects">← The build log · 06</a>
+
+    <header class="art-head">
+      <div class="tags">
+        <span class="tag">3D printing</span>
+        <span class="tag">Delta printer</span>
+        <span class="tag">Slic3r</span>
+      </div>
+      <h1>Assembling a 3D Printer</h1>
+      <p class="standfirst">Putting an end to months of wondering how 3D printers work — by building one from a FLSUN Kossel Delta kit.</p>
+      <div class="art-meta">
+        <div><span class="k">Published</span>14 March 2017</div>
+        <div><span class="k">By</span>Alex Lim &amp; Mark Bala</div>
+        <div><span class="k">Field</span>3D printing</div>
+      </div>
+    </header>
+
+    <figure class="art-figure">
+      <img src="../img/opt/3d-before-after-1200.jpg" alt="FLSUN Kossel Delta 3D printer, before and after assembly">
+      <figcaption>Kit parts laid out (left) and the assembled delta printer (right).</figcaption>
+    </figure>
+
+    <div class="art-body">
+      <p class="lead">Assembly took us eight hours across two evenings — largely thanks to our innate inability to follow instructions.</p>
+
+      <h2>Understanding the printer</h2>
+      <ul>
+        <li>A triangular prism of aluminium bars, held together by plastic joints, forms the frame — and everything except those bars can be fabricated on the printer itself.</li>
+        <li>Three carbon-fibre rods connect the extruder to tension belts along the frame; each belt is driven by a stepper motor hidden in the base.</li>
+        <li>Differential movement of the motors sets the position, speed and direction of the extruder head, with a MEGA 2560 powering it all.</li>
+        <li>On the software side we used Slic3r and Repetier Host. Slic3r turns 3D models into long lists of x,y coordinates per layer; when a layer's done the head steps up in z and follows the next layer's path.</li>
+        <li>A fourth stepper controls filament extrusion and retraction — effectively a "print / don't print" switch as all four motors move the head along its path.</li>
+      </ul>
+
+      <h2>Learning points</h2>
+      <ul>
+        <li>Every variable matters, and they're often interdependent.</li>
+        <li>Everything is customisable — print speed, layer thickness, infill density and pattern, temperature, retraction, supports and rafts, cooling, first-layer specifics.</li>
+        <li>Print orientation matters: as-is, on its side, or upside down.</li>
+        <li>Solutions to almost every issue are readily available online.</li>
+      </ul>
+
+      <h2>Things we're happy with</h2>
+      <ul>
+        <li>It works.</li>
+        <li>It's properly calibrated — a 2&nbsp;cm model prints as a 2&nbsp;cm object.</li>
+        <li>Printing is cheap — PLA runs about $10/kg on Taobao.</li>
+        <li>We've printed genuinely useful things: a tap key, Christmas decorations, a bottle opener and a tablet stand.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="ph">Ideas for development</div>
+        <p style="margin:0">Modified and upgraded parts — fans, dampers, tensioners, auto-level — are available online. Some improve print quality; others claim to make the printer run quieter.</p>
+      </div>
+
+      <a class="next-link" href="../index.html#projects">
+        <div>
+          <div class="k">Back to the top</div>
+          <h3>The build log</h3>
+        </div>
+        <span class="arrow" aria-hidden="true">↑</span>
+      </a>
+    </div>
+  </div>
+</article>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-bottom" style="border:0;padding-top:0">
+      <span>© Mark Balakrishnan 2017</span>
+      <span><a href="../index.html" style="color:inherit;text-decoration:none">mark.balakrishnan.sg</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

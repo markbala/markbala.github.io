@@ -3,14 +3,11 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Mark Balakrishnan -- Maker & Developer -- github.com/markbala
 
-# THANKS
+# SITE
 
-    Template: Sima 2015., developed by md. shiddikur rahman
-   
-
-# TECHNOLOGY COLOPHON
-
-    CSS3, HTML5
-    Apache Server Configs, jQuery, Modernizr, Normalize.css
+    Last update: 2026/06/11
+    Standards: HTML5, CSS3
+    Components: Vanilla JavaScript (no frameworks)
+    Software: Static site, hosted on GitHub Pages

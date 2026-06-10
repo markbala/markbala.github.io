@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raspberry Pi MIDI Footswitch Controller — Mark Balakrishnan</title>
+<meta name="description" content="Build log for a Raspberry Pi Zero MIDI footswitch controller in Python: GPIO footswitches, USB-MIDI output, short/long-press handling and LED feedback.">
+<meta name="author" content="Mark Balakrishnan">
+<meta name="theme-color" content="#0B4228">
+<link rel="canonical" href="https://mark.balakrishnan.sg/projects/rpi-midi-controller.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Mark Balakrishnan">
+<meta property="og:title" content="Raspberry Pi MIDI Footswitch Controller — Mark Balakrishnan">
+<meta property="og:description" content="Build log for a Raspberry Pi Zero MIDI footswitch controller in Python: GPIO footswitches, USB-MIDI output, short/long-press handling and LED feedback.">
+<meta property="og:url" content="https://mark.balakrishnan.sg/projects/rpi-midi-controller.html">
+<meta property="og:image" content="https://mark.balakrishnan.sg/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_SG">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Raspberry Pi MIDI Footswitch Controller">
+<meta name="twitter:description" content="Build log for a Raspberry Pi Zero MIDI footswitch controller in Python: GPIO footswitches, USB-MIDI output, short/long-press handling and LED feedback.">
+<meta name="twitter:image" content="https://mark.balakrishnan.sg/img/og-image.png">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+<script>
+(function(){try{var d=document.documentElement;var t=localStorage.getItem('mb-theme');if(t==='carbon')d.setAttribute('data-theme','carbon');var a=localStorage.getItem('mb-accent'),m={racing:'#0B4228',vermilion:'#B23A1E',cobalt:'#1F3A6B',plum:'#5B2A4E'};var v=a?(a[0]==='#'?a:m[a]):'#0B4228';if(v)d.style.setProperty('--accent-base',v);}catch(e){}})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Raspberry Pi MIDI Footswitch Controller",
+      "description": "Build log for a Raspberry Pi Zero MIDI footswitch controller in Python: GPIO footswitches, USB-MIDI output, short/long-press handling and LED feedback.",
+      "image": "https://mark.balakrishnan.sg/img/og-image.png",
+      "datePublished": "2020-06-01",
+      "author": { "@type": "Person", "name": "Mark Balakrishnan", "url": "https://mark.balakrishnan.sg/" },
+      "publisher": { "@type": "Person", "name": "Mark Balakrishnan" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mark.balakrishnan.sg/projects/rpi-midi-controller.html" },
+      "articleSection": "Raspberry Pi",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Build log", "item": "https://mark.balakrishnan.sg/" },
+        { "@type": "ListItem", "position": 2, "name": "Raspberry Pi MIDI Footswitch Controller", "item": "https://mark.balakrishnan.sg/projects/rpi-midi-controller.html" }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NMM6QZ9JRS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NMM6QZ9JRS');
+</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" aria-label="Mark Balakrishnan — home">
+      <span class="monogram">MB</span><b>Mark Balakrishnan</b>
+    </a>
+    <nav class="nav">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#about">About</a>
+      <a href="https://github.com/markbala" rel="me noopener" target="_blank">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<article class="article">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#projects">← The build log · 02</a>
+
+    <header class="art-head">
+      <div class="tags">
+        <span class="tag">Raspberry Pi</span>
+        <span class="tag">Python</span>
+        <span class="tag">MIDI</span>
+        <span class="tag">GPIO</span>
+      </div>
+      <h1>Raspberry Pi MIDI Footswitch Controller</h1>
+      <p class="standfirst">I wanted four more footswitches for my Atomic Amplifire 6 — cheaply — and found that a Raspberry Pi makes a perfectly good MIDI controller.</p>
+      <div class="art-meta">
+        <div><span class="k">Published</span>June 2020</div>
+        <div><span class="k">By</span>Mark Bala</div>
+        <div><span class="k">Field</span>Raspberry Pi</div>
+      </div>
+    </header>
+
+    <figure class="art-figure" style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)">
+      <img src="../img/opt/midi1-1000.jpg" alt="Raspberry Pi MIDI controller — wiring" style="height:100%;object-fit:cover">
+      <img src="../img/opt/midi2-1000.jpg" alt="Raspberry Pi MIDI controller — assembled in enclosure" style="height:100%;object-fit:cover">
+    </figure>
+
+    <div class="art-body">
+      <p class="lead">Four footswitches wired to a Pi Zero's GPIO, each sending a predefined MIDI Control Change message to whatever device is plugged in — with LED feedback and short/long-press handling so every switch does double duty.</p>
+
+      <h2>Parts</h2>
+      <ul>
+        <li>Raspberry Pi Zero</li>
+        <li>4 × footswitches, wires and resistors</li>
+        <li>4 × LEDs</li>
+        <li>USB-to-MIDI cable</li>
+        <li>OTG cable so the Pi Zero accepts USB-A</li>
+        <li>A casing</li>
+      </ul>
+
+      <h2>How it works</h2>
+      <ul>
+        <li>Four footswitches sit on the Pi's GPIO, each with its own LED indicator.</li>
+        <li>Pressing a switch sends a predefined MIDI Control Change (CC) message — set in the code — to the connected device.</li>
+        <li>It distinguishes short from long presses, so each switch can trigger two actions.</li>
+        <li>LEDs give visual feedback whenever a press registers.</li>
+        <li>On startup, all LEDs flash in sequence to show the controller is ready.</li>
+        <li>The Pi automatically searches for and connects to available MIDI devices, then listens continuously and sends the matching messages.</li>
+      </ul>
+
+      <div class="builtwith">
+        <div class="ph">Code &amp; details</div>
+        <div class="chiprow">
+          <a href="https://github.com/markbala/Raspberry-Pi-MIDI-Controller" target="_blank" rel="noopener">Source on GitHub ↗</a>
+        </div>
+      </div>
+
+      <a class="next-link" href="telegram-ethereum-bot.html">
+        <div>
+          <div class="k">Next in the log · 03</div>
+          <h3>Telegram Ethereum Price Bot</h3>
+        </div>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</article>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-bottom" style="border:0;padding-top:0">
+      <span>© Mark Balakrishnan 2020</span>
+      <span><a href="../index.html" style="color:inherit;text-decoration:none">mark.balakrishnan.sg</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>
