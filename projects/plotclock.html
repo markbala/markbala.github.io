@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plot Clock — Mark Balakrishnan</title>
+<meta name="description" content="3D-printing and assembling Joo's Plot Clock — a servo-driven mechanical arm that writes the time on a board and erases it once a minute.">
+<meta name="author" content="Mark Balakrishnan">
+<meta name="theme-color" content="#0B4228">
+<link rel="canonical" href="https://mark.balakrishnan.sg/projects/plotclock.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Mark Balakrishnan">
+<meta property="og:title" content="Plot Clock — Mark Balakrishnan">
+<meta property="og:description" content="3D-printing and assembling Joo's Plot Clock — a servo-driven mechanical arm that writes the time on a board and erases it once a minute.">
+<meta property="og:url" content="https://mark.balakrishnan.sg/projects/plotclock.html">
+<meta property="og:image" content="https://mark.balakrishnan.sg/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_SG">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Plot Clock">
+<meta name="twitter:description" content="3D-printing and assembling Joo's Plot Clock — a servo-driven mechanical arm that writes the time on a board and erases it once a minute.">
+<meta name="twitter:image" content="https://mark.balakrishnan.sg/img/og-image.png">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+<script>
+(function(){try{var d=document.documentElement;var t=localStorage.getItem('mb-theme');if(t==='carbon')d.setAttribute('data-theme','carbon');var a=localStorage.getItem('mb-accent'),m={racing:'#0B4228',vermilion:'#B23A1E',cobalt:'#1F3A6B',plum:'#5B2A4E'};var v=a?(a[0]==='#'?a:m[a]):'#0B4228';if(v)d.style.setProperty('--accent-base',v);}catch(e){}})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Plot Clock",
+      "description": "3D-printing and assembling Joo's Plot Clock — a servo-driven mechanical arm that writes the time on a board and erases it once a minute.",
+      "image": "https://mark.balakrishnan.sg/img/og-image.png",
+      "datePublished": "2017-04-01",
+      "author": { "@type": "Person", "name": "Mark Balakrishnan", "url": "https://mark.balakrishnan.sg/" },
+      "publisher": { "@type": "Person", "name": "Mark Balakrishnan" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mark.balakrishnan.sg/projects/plotclock.html" },
+      "articleSection": "3D printing",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Build log", "item": "https://mark.balakrishnan.sg/" },
+        { "@type": "ListItem", "position": 2, "name": "Plot Clock", "item": "https://mark.balakrishnan.sg/projects/plotclock.html" }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NMM6QZ9JRS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NMM6QZ9JRS');
+</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" aria-label="Mark Balakrishnan — home">
+      <span class="monogram">MB</span><b>Mark Balakrishnan</b>
+    </a>
+    <nav class="nav">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#about">About</a>
+      <a href="https://github.com/markbala" rel="me noopener" target="_blank">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<article class="article">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#projects">← The build log · 05</a>
+
+    <header class="art-head">
+      <div class="tags">
+        <span class="tag">3D printing</span>
+        <span class="tag">Arduino</span>
+        <span class="tag">Servos</span>
+      </div>
+      <h1>Printing &amp; assembling a Plot Clock</h1>
+      <p class="standfirst">A mechanical arm that writes the time on a small board and wipes it clean once a minute — a remix of Joo's Plot Clock.</p>
+      <div class="art-meta">
+        <div><span class="k">Built</span>First try mid-2016 · Second April 2017</div>
+        <div><span class="k">By</span>Alex Lim &amp; Mark Bala</div>
+        <div><span class="k">Field</span>3D printing</div>
+      </div>
+    </header>
+
+    <figure class="art-figure pad" style="text-align:center">
+      <video controls preload="metadata" poster="../img/Plot Clock Assembled.JPG" style="width:100%;max-width:640px;border-radius:4px">
+        <source src="https://github.com/markbala/markbala.github.io/raw/master/videos/MB%20Plot%20Clock%20Video.mp4" type="video/mp4">
+      </video>
+      <figcaption style="border:0;padding-top:14px">The assembled plot clock writing out the time.</figcaption>
+    </figure>
+
+    <div class="art-body">
+      <p class="lead">We 3D-printed and assembled a "plot clock" — a mechanical arm that writes and erases the time at fixed intervals, using a remixed version of <a href="https://www.thingiverse.com/thing:779172" target="_blank" rel="noopener">Joo's Plot Clock</a> from Thingiverse.</p>
+
+      <h2>How it works</h2>
+      <ul>
+        <li>Every plastic part is 3D-printed.</li>
+        <li>Three servos drive movement along the x, y and z axes.</li>
+        <li>An Arduino is the brain: once a minute it instructs the servos to move the arms.</li>
+        <li>The arms guide a pen to write the time, then lift it into a cap, which is dragged in a sweeping motion to erase the previous minute.</li>
+        <li>With the board clean, it returns home and waits for the next minute.</li>
+        <li>The code can be calibrated for writing speed, lift and positioning.</li>
+      </ul>
+
+      <h2>First attempt</h2>
+      <ul>
+        <li>Before we owned a printer, we sent the original Joo STL files to a shop to print, then assembled and calibrated it over two evenings.</li>
+        <li>Snags:
+          <ul>
+            <li>No tap drill, and the holes were too small for screws — we shaved plastic and forced screws through with an electric screwdriver.</li>
+            <li>Calibration wasn't great, so some numbers printed strangely.</li>
+            <li>The marker cap wouldn't fit into its resting slot.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h2>Second attempt</h2>
+      <ul>
+        <li>We reprinted every part on our own FLSUN Kossel Delta and got it running reliably this time.</li>
+      </ul>
+
+      <a class="next-link" href="assembling-a-3d-printer.html">
+        <div>
+          <div class="k">Next in the log · 06</div>
+          <h3>Assembling a 3D Printer</h3>
+        </div>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</article>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-bottom" style="border:0;padding-top:0">
+      <span>© Mark Balakrishnan 2017</span>
+      <span><a href="../index.html" style="color:inherit;text-decoration:none">mark.balakrishnan.sg</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

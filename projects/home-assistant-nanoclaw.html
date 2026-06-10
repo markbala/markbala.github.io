@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home Assistant + NanoClaw — Mark Balakrishnan</title>
+<meta name="description" content="A self-hosted Claude agent on WhatsApp that controls Home Assistant via ha-mcp — reasoning between the prompt and the action.">
+<meta name="author" content="Mark Balakrishnan">
+<meta name="theme-color" content="#0B4228">
+<link rel="canonical" href="https://mark.balakrishnan.sg/projects/home-assistant-nanoclaw.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Mark Balakrishnan">
+<meta property="og:title" content="Home Assistant + NanoClaw — Mark Balakrishnan">
+<meta property="og:description" content="A self-hosted Claude agent on WhatsApp that controls Home Assistant via ha-mcp — reasoning between the prompt and the action.">
+<meta property="og:url" content="https://mark.balakrishnan.sg/projects/home-assistant-nanoclaw.html">
+<meta property="og:image" content="https://mark.balakrishnan.sg/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_SG">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Home Assistant + NanoClaw">
+<meta name="twitter:description" content="A self-hosted Claude agent on WhatsApp that controls Home Assistant via ha-mcp — reasoning between the prompt and the action.">
+<meta name="twitter:image" content="https://mark.balakrishnan.sg/img/og-image.png">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+<script>
+(function(){try{var d=document.documentElement;var t=localStorage.getItem('mb-theme');if(t==='carbon')d.setAttribute('data-theme','carbon');var a=localStorage.getItem('mb-accent'),m={racing:'#0B4228',vermilion:'#B23A1E',cobalt:'#1F3A6B',plum:'#5B2A4E'};var v=a?(a[0]==='#'?a:m[a]):'#0B4228';if(v)d.style.setProperty('--accent-base',v);}catch(e){}})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Home Assistant + NanoClaw",
+      "description": "A self-hosted Claude agent on WhatsApp that controls Home Assistant via ha-mcp — reasoning between the prompt and the action.",
+      "image": "https://mark.balakrishnan.sg/img/og-image.png",
+      "datePublished": "2026-04-01",
+      "author": { "@type": "Person", "name": "Mark Balakrishnan", "url": "https://mark.balakrishnan.sg/" },
+      "publisher": { "@type": "Person", "name": "Mark Balakrishnan" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mark.balakrishnan.sg/projects/home-assistant-nanoclaw.html" },
+      "articleSection": "Home automation",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Build log", "item": "https://mark.balakrishnan.sg/" },
+        { "@type": "ListItem", "position": 2, "name": "Home Assistant + NanoClaw", "item": "https://mark.balakrishnan.sg/projects/home-assistant-nanoclaw.html" }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NMM6QZ9JRS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NMM6QZ9JRS');
+</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" aria-label="Mark Balakrishnan — home">
+      <span class="monogram">MB</span>
+      <b>Mark Balakrishnan</b>
+    </a>
+    <nav class="nav">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#about">About</a>
+      <a href="https://github.com/markbala" rel="me noopener" target="_blank">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<article class="article">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#projects">← The build log · 01</a>
+
+    <header class="art-head">
+      <div class="tags">
+        <span class="tag">Home Assistant</span>
+        <span class="tag">NanoClaw</span>
+        <span class="tag">Claude Agent SDK</span>
+        <span class="tag">MCP</span>
+      </div>
+      <h1>Home Assistant&nbsp;+ NanoClaw</h1>
+      <p class="standfirst">A self-hosted Claude agent on WhatsApp that controls Home Assistant via ha-mcp — with real reasoning sitting between the message and the action.</p>
+      <div class="art-meta">
+        <div><span class="k">Published</span>April 2026</div>
+        <div><span class="k">By</span>Mark Bala</div>
+        <div><span class="k">Field</span>Home automation</div>
+      </div>
+    </header>
+
+    <figure class="art-figure">
+      <img src="../img/whatsapp-demo-redacted.png" alt="WhatsApp chat with the @home agent watching the driveway camera for a second car to arrive">
+      <figcaption>The agent watching the driveway cam over WhatsApp — waiting for the second car before closing the gate.</figcaption>
+    </figure>
+
+    <div class="art-body">
+      <p class="lead">This NanoClaw agent responds to me — or anyone I allow — over WhatsApp. On its own it's a chat bot. Wired into ha-mcp, it gets the entire Home Assistant surface to work with, plus Claude's reasoning between the prompt and the action.</p>
+
+      <h2>The stack</h2>
+      <ul>
+        <li><a href="https://github.com/qwibitai/nanoclaw" target="_blank" rel="noopener"><strong>NanoClaw</strong></a> — runs persistent, containerized Claude agents addressable from chat apps (WhatsApp, Telegram, Slack, Discord). Each agent has its own memory, workspace, and scheduled-task system. Built on Anthropic's Claude Agent SDK.</li>
+        <li><a href="https://github.com/homeassistant-ai/ha-mcp" target="_blank" rel="noopener"><strong>ha-mcp</strong></a> — the unofficial Home Assistant MCP server. Exposes tools across services, automations, scripts, dashboards, camera snapshots, history and system health.</li>
+        <li><a href="https://www.home-assistant.io" target="_blank" rel="noopener"><strong>Home Assistant</strong></a> — open-source, self-hosted home automation, running on the local network and integrating thousands of devices: cameras, sensors, lights, locks, climate, media.</li>
+      </ul>
+
+      <h2>Things I've asked it over WhatsApp</h2>
+      <ul>
+        <li><strong>Writing automations.</strong> "Turn off the entrance light if no motion is detected for 10 minutes after sunset." It writes and saves an HA automation with the right triggers, conditions and action chain.</li>
+        <li><strong>Editing the dashboard.</strong> "Add a card on the main dashboard for the new motion sensor." It updates the Lovelace config with the right card type, entity and position.</li>
+        <li><strong>Debugging.</strong> It reads logs and automation traces, then suggests and executes fixes.</li>
+        <li><strong>Understanding CCTV.</strong> It retrieves camera snapshots and comprehends the scene — not just "motion detected".
+          <ul>
+            <li>"Close the gate when the second car is parked and the brake lights are off." It polls every few seconds, evaluates each frame, and only fires the gate-close when satisfied.</li>
+            <li>"Is the driveway clear?" The condition logic isn't pre-programmed — the agent works out from the prompt what to look for.</li>
+          </ul>
+        </li>
+        <li><strong>Ad-hoc scheduling.</strong> "Open the gate and turn on the ground-floor lights in 5 minutes, friends are on the way."</li>
+      </ul>
+
+      <div class="callout">
+        <div class="ph">Why it works</div>
+        <p style="margin:0">Because of Claude's reasoning, loose messages like "close gate", "what's on the driveway cam", or "flash the living room lights like a police siren for 5 seconds" all get executed reliably.</p>
+      </div>
+
+      <h2>Scheduled actions</h2>
+      <ul>
+        <li><strong>Inside Home Assistant</strong> — automations and time-triggered scripts that persist and run even when the agent is asleep.</li>
+        <li><strong>Outside, via NanoClaw</strong> — cron-like tasks that wake the agent. "Every morning at 7am, summarize the overnight logs and flag anything weird" runs daily; the agent reads the logs and pings me only if something's off.</li>
+      </ul>
+
+      <h2>What makes this different</h2>
+      <ul>
+        <li>The gap between "Alexa, turn off the light" and this is the reasoning between the prompt and the action — and the ability to debug when things don't go to plan.</li>
+        <li>NanoClaw's persistent memory means the agent remembers what was asked and improves over time, learning the cameras (even the types of cars it sees) and the common requests.</li>
+        <li>Because it talks over WhatsApp, it can respond to me, to other NanoClaw agents, or to group-chat participants — having a laugh with my smart home.</li>
+        <li><strong>It makes HA reachable beyond the local network.</strong> The NanoClaw and Home Assistant servers sit on the same network, so the house is reachable from anywhere via WhatsApp — no port forwarding, no VPN.</li>
+      </ul>
+
+      <div class="builtwith">
+        <div class="ph">Built with</div>
+        <div class="chiprow">
+          <a href="https://github.com/qwibitai/nanoclaw" target="_blank" rel="noopener">NanoClaw ↗</a>
+          <a href="https://www.home-assistant.io" target="_blank" rel="noopener">Home Assistant ↗</a>
+          <a href="https://github.com/homeassistant-ai/ha-mcp" target="_blank" rel="noopener">ha-mcp ↗</a>
+        </div>
+      </div>
+
+      <a class="next-link" href="rpi-midi-controller.html">
+        <div>
+          <div class="k">Next in the log · 02</div>
+          <h3>Raspberry Pi MIDI Footswitch</h3>
+        </div>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</article>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-bottom" style="border:0;padding-top:0">
+      <span>© Mark Balakrishnan 2026</span>
+      <span><a href="../index.html" style="color:inherit;text-decoration:none">mark.balakrishnan.sg</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

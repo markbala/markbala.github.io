@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python RSS Reader — Mark Balakrishnan</title>
+<meta name="description" content="A lightweight Python RSS reader using tkinter and feedparser, polling SGX company announcements and Straits Times Singapore feeds.">
+<meta name="author" content="Mark Balakrishnan">
+<meta name="theme-color" content="#0B4228">
+<link rel="canonical" href="https://mark.balakrishnan.sg/projects/rss-reader.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Mark Balakrishnan">
+<meta property="og:title" content="Python RSS Reader — Mark Balakrishnan">
+<meta property="og:description" content="A lightweight Python RSS reader using tkinter and feedparser, polling SGX company announcements and Straits Times Singapore feeds.">
+<meta property="og:url" content="https://mark.balakrishnan.sg/projects/rss-reader.html">
+<meta property="og:image" content="https://mark.balakrishnan.sg/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_SG">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Python RSS Reader">
+<meta name="twitter:description" content="A lightweight Python RSS reader using tkinter and feedparser, polling SGX company announcements and Straits Times Singapore feeds.">
+<meta name="twitter:image" content="https://mark.balakrishnan.sg/img/og-image.png">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+<script>
+(function(){try{var d=document.documentElement;var t=localStorage.getItem('mb-theme');if(t==='carbon')d.setAttribute('data-theme','carbon');var a=localStorage.getItem('mb-accent'),m={racing:'#0B4228',vermilion:'#B23A1E',cobalt:'#1F3A6B',plum:'#5B2A4E'};var v=a?(a[0]==='#'?a:m[a]):'#0B4228';if(v)d.style.setProperty('--accent-base',v);}catch(e){}})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Python RSS Reader",
+      "description": "A lightweight Python RSS reader using tkinter and feedparser, polling SGX company announcements and Straits Times Singapore feeds.",
+      "image": "https://mark.balakrishnan.sg/img/og-image.png",
+      "datePublished": "2017-08-01",
+      "author": { "@type": "Person", "name": "Mark Balakrishnan", "url": "https://mark.balakrishnan.sg/" },
+      "publisher": { "@type": "Person", "name": "Mark Balakrishnan" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mark.balakrishnan.sg/projects/rss-reader.html" },
+      "articleSection": "Python",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Build log", "item": "https://mark.balakrishnan.sg/" },
+        { "@type": "ListItem", "position": 2, "name": "Python RSS Reader", "item": "https://mark.balakrishnan.sg/projects/rss-reader.html" }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NMM6QZ9JRS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NMM6QZ9JRS');
+</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" aria-label="Mark Balakrishnan — home">
+      <span class="monogram">MB</span><b>Mark Balakrishnan</b>
+    </a>
+    <nav class="nav">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#about">About</a>
+      <a href="https://github.com/markbala" rel="me noopener" target="_blank">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<article class="article">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#projects">← The build log · 04</a>
+
+    <header class="art-head">
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">tkinter</span>
+        <span class="tag">feedparser</span>
+      </div>
+      <h1>Python RSS Reader</h1>
+      <p class="standfirst">A lightweight desktop ticker that floats over whatever you're doing, surfacing the latest from SGX and the Straits Times.</p>
+      <div class="art-meta">
+        <div><span class="k">Published</span>August 2017</div>
+        <div><span class="k">By</span>Mark Bala</div>
+        <div><span class="k">Field</span>Python</div>
+      </div>
+    </header>
+
+    <figure class="art-figure pad" style="text-align:center">
+      <img src="../img/RSS.PNG" alt="The Python RSS reader widget floating on the desktop" style="display:inline-block;max-width:520px;width:100%">
+    </figure>
+
+    <div class="art-body">
+      <p class="lead">A simple RSS reader written in Python. It floats on top of any open application and can be dragged anywhere on screen, so it never obscures anything important.</p>
+
+      <h2>What it does</h2>
+      <ul>
+        <li>Monitors two feeds: <strong>SGX company announcements</strong> and the <strong>Straits Times</strong> Singapore section.</li>
+        <li>On launch it pulls the 10 latest posts from each source; thereafter each is polled once a minute for new entries.</li>
+        <li>It keeps a rolling list of the 10 most recent entries per source and displays a random one for eight seconds at a time.</li>
+      </ul>
+
+      <h2>Libraries</h2>
+      <ul>
+        <li>Standard library — <em>tkinter</em>, <em>sys</em> and <em>random</em>.</li>
+        <li>Third-party — <a href="https://pypi.python.org/pypi/feedparser" target="_blank" rel="noopener"><em>feedparser</em></a> to parse the RSS data.</li>
+      </ul>
+
+      <h2>Issues &amp; ideas</h2>
+      <ul>
+        <li>Add more relevant feeds.</li>
+        <li>Consider a multi-line output.</li>
+        <li>No notification or alert yet when a new item arrives.</li>
+      </ul>
+
+      <div class="builtwith">
+        <div class="ph">Code &amp; details</div>
+        <div class="chiprow">
+          <a href="https://github.com/markbala/RSS-Feed-SGX-Straits-Times" target="_blank" rel="noopener">Source on GitHub ↗</a>
+        </div>
+      </div>
+
+      <a class="next-link" href="plotclock.html">
+        <div>
+          <div class="k">Next in the log · 05</div>
+          <h3>Plot Clock</h3>
+        </div>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</article>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-bottom" style="border:0;padding-top:0">
+      <span>© Mark Balakrishnan 2017</span>
+      <span><a href="../index.html" style="color:inherit;text-decoration:none">mark.balakrishnan.sg</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>
