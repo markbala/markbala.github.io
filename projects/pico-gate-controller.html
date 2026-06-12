@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pico Gate Controller — Mark Balakrishnan</title>
+<meta name="description" content="A Raspberry Pi Pico W wired across an old gate remote — a relay, a tiny MicroPython web server, and the front gate becomes one more button in Home Assistant.">
+<meta name="author" content="Mark Balakrishnan">
+<meta name="theme-color" content="#0B4228">
+<link rel="canonical" href="https://mark.balakrishnan.sg/projects/pico-gate-controller.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Mark Balakrishnan">
+<meta property="og:title" content="Pico Gate Controller — Mark Balakrishnan">
+<meta property="og:description" content="A Raspberry Pi Pico W wired across an old gate remote — a relay, a tiny MicroPython web server, and the front gate becomes one more button in Home Assistant.">
+<meta property="og:url" content="https://mark.balakrishnan.sg/projects/pico-gate-controller.html">
+<meta property="og:image" content="https://mark.balakrishnan.sg/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_SG">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pico Gate Controller">
+<meta name="twitter:description" content="A Raspberry Pi Pico W wired across an old gate remote — a relay, a tiny MicroPython web server, and the front gate becomes one more button in Home Assistant.">
+<meta name="twitter:image" content="https://mark.balakrishnan.sg/img/og-image.png">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+<script>
+(function(){try{var d=document.documentElement;var t=localStorage.getItem('mb-theme');if(t==='carbon')d.setAttribute('data-theme','carbon');var a=localStorage.getItem('mb-accent'),m={racing:'#0B4228',vermilion:'#B23A1E',cobalt:'#1F3A6B',plum:'#5B2A4E'};var v=a?(a[0]==='#'?a:m[a]):'#0B4228';if(v)d.style.setProperty('--accent-base',v);}catch(e){}})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "Pico Gate Controller",
+      "description": "A Raspberry Pi Pico W wired across an old gate remote — a relay, a tiny MicroPython web server, and the front gate becomes one more button in Home Assistant.",
+      "image": "https://mark.balakrishnan.sg/img/opt/gate-1000.jpg",
+      "datePublished": "2025-08-23",
+      "author": { "@type": "Person", "name": "Mark Balakrishnan", "url": "https://mark.balakrishnan.sg/" },
+      "publisher": { "@type": "Person", "name": "Mark Balakrishnan" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mark.balakrishnan.sg/projects/pico-gate-controller.html" },
+      "articleSection": "Home automation",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Build log", "item": "https://mark.balakrishnan.sg/" },
+        { "@type": "ListItem", "position": 2, "name": "Pico Gate Controller", "item": "https://mark.balakrishnan.sg/projects/pico-gate-controller.html" }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NMM6QZ9JRS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NMM6QZ9JRS');
+</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html" aria-label="Mark Balakrishnan — home">
+      <span class="monogram">MB</span><b>Mark Balakrishnan</b>
+    </a>
+    <nav class="nav">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#about">About</a>
+      <a href="https://github.com/markbala" rel="me noopener" target="_blank">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<article class="article">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#projects">← The build log · 02</a>
+
+    <header class="art-head">
+      <div class="tags">
+        <span class="tag">Raspberry Pi Pico W</span>
+        <span class="tag">MicroPython</span>
+        <span class="tag">Home Assistant</span>
+        <span class="tag">Relay</span>
+      </div>
+      <h1>Pico Gate Controller</h1>
+      <p class="standfirst">An old RF gate remote, a single relay and a Raspberry Pi Pico&nbsp;W — enough to turn the front gate into one more button in Home Assistant.</p>
+      <div class="art-meta">
+        <div><span class="k">Published</span>August 2025</div>
+        <div><span class="k">By</span>Mark Bala</div>
+        <div><span class="k">Field</span>Home automation</div>
+      </div>
+    </header>
+
+    <figure class="art-figure">
+      <img src="../img/opt/gate-1000.jpg" alt="A Raspberry Pi Pico W wired through a single-channel relay to the contacts of a 330 MHz gate remote">
+      <figcaption>The whole rig: a Pico&nbsp;W (left) driving a relay (centre) wired across the gate remote's button (right).</figcaption>
+    </figure>
+
+    <div class="art-body">
+      <p class="lead">The gate at the end of the driveway came with a 330&nbsp;MHz remote and nothing else — no app, no network, no way for Home Assistant to touch it. A Raspberry Pi Pico&nbsp;W fixes that: it sits across the remote's button and presses it on demand.</p>
+
+      <h2>What it does</h2>
+      <ul>
+        <li>The Pico&nbsp;W runs a small <strong>MicroPython HTTP server</strong> on the local network.</li>
+        <li>A single-channel relay is wired across the contacts of the existing gate remote's button. The remote still does all the RF work — the Pico just closes the contact, exactly as a thumb would.</li>
+        <li>Hitting <code>/toggle_gate</code> pulses the relay for one second, the remote fires, and the gate moves. No firmware on the gate itself, nothing to reverse-engineer.</li>
+      </ul>
+
+      <h2>The hardware</h2>
+      <ul>
+        <li><strong>Raspberry Pi Pico&nbsp;W</strong> — the £6 microcontroller with WiFi, running MicroPython.</li>
+        <li><strong>Single-channel relay module</strong>, driven from <code>GPIO&nbsp;20</code> (configurable in code).</li>
+        <li>The <strong>original 330/433&nbsp;MHz gate remote</strong>, opened up so the relay can bridge its button.</li>
+      </ul>
+
+      <h2>The web server</h2>
+      <p>The whole thing is a handful of routes in <code>main.py</code> and <code>utils.py</code>:</p>
+      <ul>
+        <li><code>/</code> — a bare-bones UI page with three buttons.</li>
+        <li><code>/led_on</code> and <code>/led_off</code> — toggle the onboard LED. Trivial, but the first thing you wire up: it proves the Pico is on the network and answering before you let it anywhere near the gate.</li>
+        <li><code>/toggle_gate</code> — pulse the relay for one second.</li>
+      </ul>
+
+      <h2>Wiring it into Home Assistant</h2>
+      <p>The UI page is handy for testing, but the point is to never use it. Home Assistant talks to the Pico with a <code>rest_command</code>, wrapped in a script and dropped onto the dashboard as a button:</p>
+      <pre style="background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;overflow:auto;font-family:var(--font-mono);font-size:.8rem;line-height:1.5;margin:18px 0"><code>rest_command:
+  toggle_gate:
+    url: "http://192.168.1.50/toggle_gate"
+    method: GET</code></pre>
+      <p>From there it's just another entity, which means it inherits everything Home Assistant already talks to. I expose it to <strong>Apple&nbsp;Home</strong>, so the gate opens from the Home app, a Siri command or a Shortcuts automation — and, of course, from the <a href="home-assistant-nanoclaw.html">WhatsApp agent elsewhere in this log</a> when it decides the second car has parked. The Pico is the bit of hardware that lets all of that actually move the gate.</p>
+
+      <h2>Knowing if it's open</h2>
+      <p>Pulsing the remote is fire-and-forget — it presses the button but has no idea whether the gate actually moved. So the gate is also paired with a <strong>magnetic reed switch</strong> in Home Assistant: a contact sensor that reports whether it's open or closed. That gives the otherwise 'dumb' gate a real status — something to show on the dashboard, warn me if it's been left open, or let an automation check the state before it fires.</p>
+
+      <h2>Setting it up</h2>
+      <ul>
+        <li>Flash MicroPython onto the Pico&nbsp;W.</li>
+        <li>Clone the repo, copy <code>secrets.example.py</code> to <code>secrets.py</code> and drop in your WiFi credentials.</li>
+        <li>Upload the scripts with Thonny, reboot, and grab the Pico's IP from your router.</li>
+        <li>Point the Home Assistant <code>rest_command</code> at that IP and you're done.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="ph">Don't put this on the internet</div>
+        <p style="margin:0">It's plain HTTP with no authentication — anyone who can reach the IP can open the gate. Keep it on the LAN, behind a VPN or reverse proxy. Never port-forward it.</p>
+      </div>
+
+      <p class="sub" style="margin-top:28px">Adapted for everyday use from initial code by Vivian Balakrishnan. MIT licensed.</p>
+
+      <div class="builtwith">
+        <div class="ph">Code &amp; details</div>
+        <div class="chiprow">
+          <a href="https://github.com/markbala/pico-gate-controller" target="_blank" rel="noopener">Source on GitHub ↗</a>
+          <a href="https://micropython.org" target="_blank" rel="noopener">MicroPython ↗</a>
+          <a href="https://www.home-assistant.io" target="_blank" rel="noopener">Home Assistant ↗</a>
+        </div>
+      </div>
+
+      <a class="next-link" href="rpi-midi-controller.html">
+        <div>
+          <div class="k">Next in the log · 03</div>
+          <h3>Raspberry Pi MIDI Footswitch</h3>
+        </div>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</article>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-bottom" style="border:0;padding-top:0">
+      <span>© Mark Balakrishnan 2025</span>
+      <span><a href="../index.html" style="color:inherit;text-decoration:none">mark.balakrishnan.sg</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>
