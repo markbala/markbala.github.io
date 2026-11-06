@@ -138,7 +138,7 @@
       <p>The UI page is handy for testing, but the point is to never use it. Home Assistant talks to the Pico with a <code>rest_command</code>, wrapped in a script and dropped onto the dashboard as a button:</p>
       <pre style="background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;overflow:auto;font-family:var(--font-mono);font-size:.8rem;line-height:1.5;margin:18px 0"><code>rest_command:
   toggle_gate:
-    url: "http://192.168.1.50/toggle_gate"
+    url: "http://&lt;PICO_IP&gt;/toggle_gate"
     method: GET</code></pre>
       <p>From there it's just another entity, which means it inherits everything Home Assistant already talks to. I expose it to <strong>Apple&nbsp;Home</strong>, so the gate opens from the Home app, a Siri command or a Shortcuts automation — and, of course, from the <a href="home-assistant-nanoclaw.html">WhatsApp agent elsewhere in this log</a> when it decides the second car has parked. The Pico is the bit of hardware that lets all of that actually move the gate.</p>
 
