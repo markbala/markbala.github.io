@@ -1,0 +1,21 @@
+# Mark Balakrishnan — weekend build log
+
+> Personal site of Mark Balakrishnan, based in Singapore: write-ups of weekend projects in home automation, AI agents, 3D printing and Python. Every build-log entry below is a normal HTML page on this site; this file only lists them.
+
+Note: llms.txt is an optional, nonstandard, community-proposed convention. Crawler or AI-system adoption and any effect on search ranking are not guaranteed. It does not change robots.txt and grants no usage permissions beyond whatever robots.txt and the site's own terms already state.
+
+## Build log
+
+- [Home Assistant + NanoClaw](https://mark.balakrishnan.sg/projects/home-assistant-nanoclaw.html): A self-hosted Claude agent on WhatsApp that controls Home Assistant via ha-mcp.
+- [Pico Gate Controller](https://mark.balakrishnan.sg/projects/pico-gate-controller.html): A Raspberry Pi Pico W wired across an old gate remote, with a relay and a tiny MicroPython web server, so the front gate becomes one more button in Home Assistant.
+- [Raspberry Pi MIDI Footswitch Controller](https://mark.balakrishnan.sg/projects/rpi-midi-controller.html): A Raspberry Pi Zero MIDI footswitch controller in Python with GPIO footswitches, USB-MIDI output, short/long-press handling and LED feedback.
+- [Telegram Ethereum Price Bot](https://mark.balakrishnan.sg/projects/telegram-ethereum-bot.html): A Python Telegram bot that reports the ETH price and the spread between a Singapore and a Korean exchange.
+- [Python RSS Reader](https://mark.balakrishnan.sg/projects/rss-reader.html): A Python RSS reader using tkinter and feedparser, polling SGX company announcements and Straits Times Singapore feeds.
+- [Plot Clock](https://mark.balakrishnan.sg/projects/plotclock.html): 3D-printing and assembling Joo's Plot Clock, a servo-driven arm that writes the time on a board and erases it once a minute.
+- [Assembling a 3D Printer](https://mark.balakrishnan.sg/projects/assembling-a-3d-printer.html): Assembling a FLSUN Kossel Delta 3D printer kit, with notes on hardware, calibration, slicing and lessons learned.
+
+## Elsewhere
+
+- [Home page](https://mark.balakrishnan.sg/): Overview of all projects and an About section.
+- [Sitemap](https://mark.balakrishnan.sg/sitemap.xml): XML sitemap of the indexable pages.
+- [GitHub profile](https://github.com/markbala): Source code for the projects.
